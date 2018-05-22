@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+   <!--typeAliases通过一个简单的别名来表示一个冗长的类型，这样可以降低复杂度。
+    类型别名标签typeAliases中可以包含多个typeAlias，如下-->
+    <typeAliases>
+        <typeAlias type="com.gaozhaoxi.entity.User" alias="user"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <!--事务管理类型-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="userMapper.xml"/>
+    </mappers>
+</configuration>
